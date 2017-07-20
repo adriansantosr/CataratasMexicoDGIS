@@ -1,0 +1,364 @@
+
+rm(list=ls())
+
+#conectando las bases de datos con linkeadas en Access
+
+saeh2000_13<- odbcConnect("SAEH2000_13")
+bdss2004_13 <- odbcConnect("BDSS2004_13")
+
+
+qry1E00 <- "SELECT CLUES, CVEEDAD, EDAD, SEXO, DERHAB, ENTIDAD, MUNIC, EGRESO, MOTEGRE, AFECPRIN FROM EGRESOS2000 WHERE AFECPRIN IN 
+            ('H25', 'H250', 'H251', 'H252', 'H258', 'H259', 'H26', 'H260', 'H261', 'H262',
+            'H263', 'H264', 'H268', 'H269', 'H28', 'H280', 'H281', 'H282', 'Q120')"
+
+qry1E01 <- "SELECT CLUES, CVEEDAD, EDAD, SEXO, DERHAB, ENTIDAD, MUNIC, EGRESO, MOTEGRE, AFECPRIN FROM EGRESOS2001 WHERE AFECPRIN IN 
+            ('H25', 'H250', 'H251', 'H252', 'H258', 'H259', 'H26', 'H260', 'H261', 'H262',
+            'H263', 'H264', 'H268', 'H269', 'H28', 'H280', 'H281', 'H282', 'Q120')"
+
+qry1E02 <- "SELECT CLUES, CVEEDAD, EDAD, SEXO, DERHAB, ENTIDAD, MUNIC, EGRESO, MOTEGRE, AFECPRIN FROM EGRESOS2002 WHERE AFECPRIN IN 
+            ('H25', 'H250', 'H251', 'H252', 'H258', 'H259', 'H26', 'H260', 'H261', 'H262',
+            'H263', 'H264', 'H268', 'H269', 'H28', 'H280', 'H281', 'H282', 'Q120')"
+
+qry1E03 <- "SELECT CLUES, CVEEDAD, EDAD, SEXO, DERHAB, ENTIDAD, MUNIC, EGRESO, MOTEGRE, AFECPRIN FROM EGRESOS2003 WHERE AFECPRIN IN 
+            ('H25', 'H250', 'H251', 'H252', 'H258', 'H259', 'H26', 'H260', 'H261', 'H262',
+            'H263', 'H264', 'H268', 'H269', 'H28', 'H280', 'H281', 'H282', 'Q120')"
+
+qry1E04 <- "SELECT CLUES, CVEEDAD, EDAD, SEXO, DERHAB, ENTIDAD, MUNIC, EGRESO, MOTEGRE, AFECPRIN FROM EGRESOS2004 WHERE AFECPRIN IN 
+            ('H25', 'H250', 'H251', 'H252', 'H258', 'H259', 'H26', 'H260', 'H261', 'H262',
+            'H263', 'H264', 'H268', 'H269', 'H28', 'H280', 'H281', 'H282', 'Q120')"
+
+qry1E05 <- "SELECT CLUES, CVEEDAD, EDAD, SEXO, DERHAB, ENTIDAD, MUNIC, EGRESO, MOTEGRE, AFECPRIN FROM EGRESOS2005 WHERE AFECPRIN IN 
+            ('H25', 'H250', 'H251', 'H252', 'H258', 'H259', 'H26', 'H260', 'H261', 'H262',
+            'H263', 'H264', 'H268', 'H269', 'H28', 'H280', 'H281', 'H282', 'Q120')"
+
+qry1E06 <- "SELECT CLUES, CVEEDAD, EDAD, SEXO, DERHAB, ENTIDAD, MUNIC, EGRESO, MOTEGRE, AFECPRIN FROM EGRESOS2006 WHERE AFECPRIN IN 
+            ('H25', 'H250', 'H251', 'H252', 'H258', 'H259', 'H26', 'H260', 'H261', 'H262',
+            'H263', 'H264', 'H268', 'H269', 'H28', 'H280', 'H281', 'H282', 'Q120')"
+
+qry1E07 <- "SELECT CLUES, CVEEDAD, EDAD, SEXO, DERHAB, ENTIDAD, MUNIC, EGRESO, MOTEGRE, AFECPRIN FROM EGRESOS2007 WHERE AFECPRIN IN 
+            ('H25', 'H250', 'H251', 'H252', 'H258', 'H259', 'H26', 'H260', 'H261', 'H262',
+            'H263', 'H264', 'H268', 'H269', 'H28', 'H280', 'H281', 'H282', 'Q120')"
+
+qry1E08 <- "SELECT CLUES, CVEEDAD, EDAD, SEXO, DERHAB, ENTIDAD, MUNIC, EGRESO, MOTEGRE, AFECPRIN FROM EGRESOS2008 WHERE AFECPRIN IN 
+            ('H25', 'H250', 'H251', 'H252', 'H258', 'H259', 'H26', 'H260', 'H261', 'H262',
+            'H263', 'H264', 'H268', 'H269', 'H28', 'H280', 'H281', 'H282', 'Q120')"
+
+qry1E09 <- "SELECT CLUES, CVEEDAD, EDAD, SEXO, DERHAB, ENTIDAD, MUNIC, EGRESO, MOTEGRE, AFECPRIN FROM EGRESOS2009 WHERE AFECPRIN IN 
+            ('H25', 'H250', 'H251', 'H252', 'H258', 'H259', 'H26', 'H260', 'H261', 'H262',
+            'H263', 'H264', 'H268', 'H269', 'H28', 'H280', 'H281', 'H282', 'Q120')"
+
+qry1E10 <- "SELECT CLUES, CVEEDAD, EDAD, SEXO, DERHAB, ENTIDAD, MUNIC, EGRESO, MOTEGRE, AFECPRIN FROM EGRESOS2010 WHERE AFECPRIN IN 
+            ('H25', 'H250', 'H251', 'H252', 'H258', 'H259', 'H26', 'H260', 'H261', 'H262',
+            'H263', 'H264', 'H268', 'H269', 'H28', 'H280', 'H281', 'H282', 'Q120')"
+
+qry1E11 <- "SELECT CLUES, CVEEDAD, EDAD, SEXO, DERHAB, ENTIDAD, MUNIC, EGRESO, MOTEGRE, AFECPRIN FROM EGRESOS2011 WHERE AFECPRIN IN 
+            ('H25', 'H250', 'H251', 'H252', 'H258', 'H259', 'H26', 'H260', 'H261', 'H262',
+            'H263', 'H264', 'H268', 'H269', 'H28', 'H280', 'H281', 'H282', 'Q120')"
+
+qry1E12 <- "SELECT CLUES, CVEEDAD, EDAD, SEXO, DERHAB, ENTIDAD, MUNIC, EGRESO, MOTEGRE, AFECPRIN FROM EGRESOS2012 WHERE AFECPRIN IN 
+            ('H25', 'H250', 'H251', 'H252', 'H258', 'H259', 'H26', 'H260', 'H261', 'H262',
+            'H263', 'H264', 'H268', 'H269', 'H28', 'H280', 'H281', 'H282', 'Q120')"
+
+qry1E13 <- "SELECT CLUES, CVEEDAD, EDAD, SEXO, DERHAB, ENTIDAD, MUNIC, EGRESO, MOTEGRE, AFECPRIN FROM EGRESOS2013 WHERE AFECPRIN IN 
+            ('H25', 'H250', 'H251', 'H252', 'H258', 'H259', 'H26', 'H260', 'H261', 'H262',
+            'H263', 'H264', 'H268', 'H269', 'H28', 'H280', 'H281', 'H282', 'Q120')"
+
+
+E00 <- sqlQuery(saeh2000_13,qry1E00)
+E01 <- sqlQuery(saeh2000_13,qry1E01)
+E02 <- sqlQuery(saeh2000_13,qry1E02)
+E03 <- sqlQuery(saeh2000_13,qry1E03)
+E04 <- sqlQuery(saeh2000_13,qry1E04)
+E05 <- sqlQuery(saeh2000_13,qry1E05)
+E06 <- sqlQuery(saeh2000_13,qry1E06)
+E07 <- sqlQuery(saeh2000_13,qry1E07)
+E08 <- sqlQuery(saeh2000_13,qry1E08)
+E09 <- sqlQuery(saeh2000_13,qry1E09)
+E10 <- sqlQuery(saeh2000_13,qry1E10)
+E11 <- sqlQuery(saeh2000_13,qry1E11)
+E12 <- sqlQuery(saeh2000_13,qry1E12)
+E13 <- sqlQuery(saeh2000_13,qry1E13)
+
+str(E03)
+
+write.csv(E00, file = "SAEH00.csv")
+write.csv(E01, file = "SAEH01.csv")
+write.csv(E02, file = "SAEH02.csv")
+write.csv(E03, file = "SAEH03.csv")
+write.csv(E04, file = "SAEH04.csv")
+write.csv(E05, file = "SAEH05.csv")
+write.csv(E06, file = "SAEH06.csv")
+write.csv(E07, file = "SAEH07.csv")
+write.csv(E08, file = "SAEH08.csv")
+write.csv(E09, file = "SAEH09.csv")
+write.csv(E10, file = "SAEH10.csv")
+write.csv(E11, file = "SAEH11.csv")
+write.csv(E12, file = "SAEH12.csv")
+write.csv(E13, file = "SAEH13.csv")
+
+
+#homogeneizando el formato de la variable EGRESO (E06, E09)
+
+E00$EGRESO <- as.Date(E00$EGRESO,format='%Y/%m/%d')
+E01$EGRESO <- as.Date(E01$EGRESO,format='%Y/%m/%d')
+E02$EGRESO <- as.Date(E02$EGRESO,format='%Y/%m/%d')
+E03$EGRESO <- as.Date(E03$EGRESO,format='%Y/%m/%d')
+E04$EGRESO <- as.Date(E04$EGRESO,format='%Y/%m/%d')
+E05$EGRESO <- as.Date(E05$EGRESO,format='%Y/%m/%d')
+E06$EGRESO <- as.Date(E06$EGRESO,format='%d/%m/%Y')
+E07$EGRESO <- as.Date(E07$EGRESO,format='%Y/%m/%d')
+E08$EGRESO <- as.Date(E08$EGRESO,format='%Y/%m/%d')
+E09$EGRESO <- as.Date(E09$EGRESO,format='%d/%m/%Y')
+E10$EGRESO <- as.Date(E10$EGRESO,format='%Y/%m/%d')
+E11$EGRESO <- as.Date(E11$EGRESO,format='%Y/%m/%d')
+E12$EGRESO <- as.Date(E12$EGRESO,format='%d/%m/%Y')
+E13$EGRESO <- as.Date(E13$EGRESO,format='%Y/%m/%d')
+
+
+E07$DERHAB <- as.integer(E07$DERHAB)
+E08$DERHAB <- as.integer(E08$DERHAB)
+E09$DERHAB <- as.integer(E09$DERHAB)
+E10$DERHAB <- as.integer(E10$DERHAB)
+E11$DERHAB <- as.integer(E11$DERHAB)
+E12$DERHAB <- as.integer(E12$DERHAB)
+E13$DERHAB <- as.integer(E13$DERHAB)
+
+
+totalE <- bind_rows(E00, E01, E02, E03, E04, E05, E06, E07, E08, E09, E10, E11, E12, E13)
+
+
+write.csv(totalE, file = "TotalEgresosCataratasSAEH00-13.csv")
+
+
+#mismo proceso con las bases del Sector Salud
+
+qry1E04a <- "SELECT edad, sexo, DH, CEDOCVE, anocap, MOTEGRE, AFECPRIN4 FROM SECTORIAL2004 WHERE AFECPRIN4 IN 
+('H25', 'H250', 'H251', 'H252', 'H258', 'H259', 'H26', 'H260', 'H261', 'H262',
+            'H263', 'H264', 'H268', 'H269', 'H28', 'H280', 'H281', 'H282', 'Q120')"
+
+E04a <- sqlQuery(bdss2004_13,qry1E04a)
+
+
+qry1E05a <- "SELECT edad, sexo, DH, CEDOCVE, anocap, MOTEGRE, AFECPRIN4 FROM SECTORIAL2005 WHERE AFECPRIN4 IN
+('H25', 'H250', 'H251', 'H252', 'H258', 'H259', 'H26', 'H260', 'H261', 'H262',
+            'H263', 'H264', 'H268', 'H269', 'H28', 'H280', 'H281', 'H282', 'Q120')"
+
+E05a <- sqlQuery(bdss2004_13,qry1E05a)
+
+qry1E06a <- "SELECT edad, sexo, DH, CEDOCVE, anocap, MOTEGRE, AFECPRIN4 FROM SECTORIAL2006 WHERE AFECPRIN4 IN 
+('H25', 'H250', 'H251', 'H252', 'H258', 'H259', 'H26', 'H260', 'H261', 'H262',
+            'H263', 'H264', 'H268', 'H269', 'H28', 'H280', 'H281', 'H282', 'Q120')"
+
+E06a <- sqlQuery(bdss2004_13,qry1E06a)
+
+qry1E07a <- "SELECT edad, sexo, DH, CEDOCVE, anocap, MOTEGRE, AFECPRIN4 FROM SECTORIAL2007 WHERE AFECPRIN4 IN 
+('H25', 'H250', 'H251', 'H252', 'H258', 'H259', 'H26', 'H260', 'H261', 'H262',
+            'H263', 'H264', 'H268', 'H269', 'H28', 'H280', 'H281', 'H282', 'Q120')"
+
+E07a <- sqlQuery(bdss2004_13,qry1E07a)
+
+qry1E08a <- "SELECT edad, sexo, DH, CEDOCVE, anocap, MOTEGRE, AFECPRIN4 FROM SECTORIAL2008 WHERE AFECPRIN4 IN 
+('H25', 'H250', 'H251', 'H252', 'H258', 'H259', 'H26', 'H260', 'H261', 'H262',
+            'H263', 'H264', 'H268', 'H269', 'H28', 'H280', 'H281', 'H282', 'Q120')"
+
+E08a <- sqlQuery(bdss2004_13,qry1E08a)
+
+
+qry1E09a <- "SELECT CLUES, edad, sexo, DH, CEDOCVE, anocap, MOTEGRE, AFECPRIN4 FROM SECTORIAL2009 WHERE AFECPRIN4 IN 
+('H25', 'H250', 'H251', 'H252', 'H258', 'H259', 'H26', 'H260', 'H261', 'H262',
+            'H263', 'H264', 'H268', 'H269', 'H28', 'H280', 'H281', 'H282', 'Q120')"
+
+E09a <- sqlQuery(bdss2004_13,qry1E09a)
+
+
+qry1E10a <- "SELECT CLUES, edad, sexo, DH, CEDOCVE, anocap, MOTEGRE, AFECPRIN4 FROM SECTORIAL2010 WHERE AFECPRIN4 IN 
+('H25', 'H250', 'H251', 'H252', 'H258', 'H259', 'H26', 'H260', 'H261', 'H262',
+            'H263', 'H264', 'H268', 'H269', 'H28', 'H280', 'H281', 'H282', 'Q120')"
+
+E10a <- sqlQuery(bdss2004_13,qry1E10a)
+
+
+qry1E11a <- "SELECT CLUES, EDAD1, SEXO, DH, CEDOCVE, anocap, MOTEGRE, AFECPRIN4 FROM SECTORIAL2011CLUES WHERE AFECPRIN4 IN 
+('H25', 'H250', 'H251', 'H252', 'H258', 'H259', 'H26', 'H260', 'H261', 'H262',
+            'H263', 'H264', 'H268', 'H269', 'H28', 'H280', 'H281', 'H282', 'Q120')"
+
+E11a <- sqlQuery(bdss2004_13,qry1E11a)
+
+E11a <- rename(E11a, c("EDAD1"="edad", "SEXO"="sexo"))
+
+qry1E12a <- "SELECT CLUES, EDAD1, SEXO, DH, CEDOCVE, anocap, MOTEGRE, AFECPRIN4 FROM SECTORIAL2012CLUES WHERE AFECPRIN4 IN
+('H25', 'H250', 'H251', 'H252', 'H258', 'H259', 'H26', 'H260', 'H261', 'H262',
+            'H263', 'H264', 'H268', 'H269', 'H28', 'H280', 'H281', 'H282', 'Q120')"
+
+E12a <- sqlQuery(bdss2004_13,qry1E12a)
+
+E12a <- rename(E12a,c("EDAD1"="edad", "SEXO"="sexo"))
+
+qry1E13a <- "SELECT CLUES, EDAD1, SEXO, DH, CEDOCVE, anocap, MOTEGRE, AFECPRIN4 FROM SECTORIAL2013CLUES WHERE AFECPRIN4 IN
+('H25', 'H250', 'H251', 'H252', 'H258', 'H259', 'H26', 'H260', 'H261', 'H262',
+            'H263', 'H264', 'H268', 'H269', 'H28', 'H280', 'H281', 'H282', 'Q120')"
+
+E13a <- sqlQuery(bdss2004_13,qry1E13a)
+
+E13a <- rename(E13a,c("EDAD1"="edad", "SEXO"="sexo"))
+
+write.csv(E04a, file = "BDSS04a.csv")
+write.csv(E05a, file = "BDSS05.csv")
+write.csv(E06a, file = "BDSS06.csv")
+write.csv(E07a, file = "BDSS07.csv")
+write.csv(E08a, file = "BDSS08.csv")
+write.csv(E09a, file = "BDSS09.csv")
+write.csv(E10a, file = "BDSS10.csv")
+write.csv(E11a, file = "BDSS11.csv")
+write.csv(E12a, file = "BDSS12.csv")
+write.csv(E13a, file = "BDSS13.csv")
+
+
+#homogeneizando el formato de la fecha en el BDSS dataset
+
+E04a$anocap <- as.Date(E04a$anocap,format='%Y/%m/%d')
+E05a$anocap <- as.Date(E05a$anocap,format='%Y/%m/%d')
+E06a$anocap <- as.Date(E06a$anocap,format='%Y/%m/%d')
+E07a$anocap <- as.Date(E07a$anocap,format='%Y/%m/%d')
+E08a$anocap <- as.Date(E08a$anocap,format='%Y/%m/%d')
+E09a$anocap <- as.Date(E09a$anocap,format='%Y/%m/%d')
+E10a$anocap <- as.Date(E10a$anocap,format='%Y/%m/%d')
+E11a$anocap <- as.Date(E11a$anocap,format='%Y/%m/%d')
+E12a$anocap <- as.Date(E12a$anocap,format='%Y/%m/%d')
+E13a$anocap <- as.Date(E13a$anocap,format='%Y/%m/%d')
+
+#extrayendo el año
+
+E04a$anocap <- lubridate::year(E04a$anocap)
+E05a$anocap <- lubridate::year(E05a$anocap)
+E06a$anocap <- lubridate::year(E06a$anocap)
+E07a$anocap <- lubridate::year(E07a$anocap)
+E08a$anocap <- lubridate::year(E08a$anocap)
+E09a$anocap <- lubridate::year(E09a$anocap)
+E10a$anocap <- lubridate::year(E10a$anocap)
+E11a$anocap <- lubridate::year(E11a$anocap)
+E12a$anocap <- lubridate::year(E12a$anocap)
+E13a$anocap <- lubridate::year(E13a$anocap)
+
+
+#uniendo todos las bases en una sola
+
+totalEa <- bind_rows(E04a, E05a, E06a, E07a, E08a)
+totalEa1 <- bind_rows(E09a, E10a, E11a, E12a, E13a)
+
+
+write.csv(totalEa, file = "TotalEgresosCataratasBDSS04-08.csv")
+write.csv(totalEa1, file = "TotalEgresosCataratasBDSS09-13.csv")
+
+
+#Comparando el nùmero de observaciones por cataratas que obtuve con los que sugiriò Pablo
+
+
+qry1E12atest <- "SELECT Count(AFECPRIN4) FROM SECTORIAL2012CLUES WHERE AFECPRIN4 IN ('H250', 'H251','H252', 'H259', 'H260', 'H261', 'H262', 'H263', 'H264', 'H269',
+'H28', 'H280', 'H281', 'H282', 'Q120')"
+
+E12atest <- sqlQuery(bdss2004_13,qry1E12atest)
+
+print(E12atest)
+
+
+qry1E12btest <- "SELECT Count(AFECPRIN4) FROM SECTORIAL2012CLUES WHERE AFECPRIN4 IN
+('H25', 'H250', 'H251', 'H252', 'H258', 'H259', 'H26', 'H260', 'H261', 'H262',
+  'H263', 'H264', 'H268', 'H269', 'H28', 'H280', 'H281', 'H282', 'Q120')"
+
+E12btest <- sqlQuery(bdss2004_13,qry1E12btest)
+
+print(E12btest)
+
+
+
+# Claves para cataratas: ('H25', 'H250', 'H251', 'H252', 'H258', 'H259', 'H26', 'H260', 'H261', 'H262', 'H263', 'H264', 'H268', 'H269', 'H28', 'H280', 'H281', 'H282', 'Q120')
+
+
+#bases, 2014 y 2015
+
+# ruta: "G:\Microanalitica\SAEH\SAEH_BD2014\EGRESOS\Base de Datos\EGRESO.csv"
+
+
+saeh2014 <- read.csv("G:/Microanalitica/SAEH/SAEH_BD2014/EGRESOS/Base de Datos/EGRESO.csv", stringsAsFactors = FALSE)
+
+str(saeh2014)
+
+bdss2014 <- read.csv("G:/Microanalitica/BDSS/BDSS_2014/SECTORIAL2014.csv", stringsAsFactors = FALSE)
+
+str(bdss2014)
+names(bdss2014)
+
+bdss2015 <- read.csv("G:/Microanalitica/BDSS/BDSS_2015/SECTOR 2015/SECTORIAL2015.csv", stringsAsFactors = FALSE)
+
+str(bdss2015)
+
+#keeping tidy
+
+rm(E00, E01, E02, E03, E04, E05, E06, E07, E08, E09, E10, E11, E12, E13, E04a, E05a, E06a, E07a, E08a, E09a, E10a, E11a, E12a, E13a, E12atest, E12btest, totalEa1)
+
+names(saeh2014)
+
+qry1E14 <- "SELECT CLUES, CVEEDAD, EDAD, SEXO, DERHAB, ENTIDAD, MUNIC, EGRESO, MOTEGRE, AFECPRIN FROM EGRESOS2000 WHERE AFECPRIN IN 
+            ('H25', 'H250', 'H251', 'H252', 'H258', 'H259', 'H26', 'H260', 'H261', 'H262',
+            'H263', 'H264', 'H268', 'H269', 'H28', 'H280', 'H281', 'H282', 'Q120')"
+
+# droping everything but not "CVEEDAD", "EDAD", "SEXO", "DERHAB", "ENTIDAD", "MUNIC", "EGRESO", "MOTEGRE2", "AFECPRIN"
+
+
+saeh2014 <- subset(saeh2014, select = c(CLUES, CVEEDAD, EDAD, SEXO, DERHAB, ENTIDAD, MUNIC, EGRESO, MOTEGRE, AFECPRIN))
+saeh2014 <- saeh2014[saeh2014$AFECPRIN %in% c("H25", "H250", "H251", "H252", "H258", "H259" , "H26", "H260" , "H261" , "H262",
+                   "H263", "H264", "H268", "H269" ,"H28" , "H280", "H281", "H282", "Q120"),]
+
+
+saeh2014$DERHAB <- as.integer(saeh2014$DERHAB)
+saeh2014$EGRESO <- as.Date(saeh2014$EGRESO, format="%Y-%m-%d %H:%M:%S")
+
+bdss2014 <- subset(bdss2014, select = c(CLUES, EDAD1, SEXO, DH, CEDOCVE, ANOCAP, MOTEGRE, AFECPRIN4))
+bdss2014 <- bdss2014[bdss2014$AFECPRIN4 %in% c("H25", "H250", "H251", "H252", "H258", "H259" , "H26", "H260" , "H261" , "H262",
+                                              "H263", "H264", "H268", "H269" ,"H28" , "H280", "H281", "H282", "Q120"),]
+
+bdss2014 <- rename(bdss2014,c("EDAD1"="edad", "SEXO"="sexo", "ANOCAP" = "anocap"))
+bdss2014$anocap <- as.Date(bdss2014$anocap, format="%Y-%m-%d %H:%M:%S")
+bdss2014$anocap <- lubridate::year(bdss2014$anocap)
+
+
+bdss2015 <- subset(bdss2015, select = c(CLUES, EDAD1, SEXO, DH, CEDOCVE, ANOCAP, MOTEGRE, AFECPRIN4))
+bdss2015 <- bdss2015[bdss2015$AFECPRIN4 %in% c("H25", "H250", "H251", "H252", "H258", "H259" , "H26", "H260" , "H261" , "H262",
+                                              "H263", "H264", "H268", "H269" ,"H28" , "H280", "H281", "H282", "Q120"),]
+
+bdss2015 <- rename(bdss2015,c("EDAD1"="edad", "SEXO"="sexo", "ANOCAP" = "anocap"))
+bdss2015$anocap <- as.Date(bdss2015$anocap, format="%Y-%m-%d %H:%M:%S")
+bdss2015$anocap <- lubridate::year(bdss2015$anocap)
+
+
+write.csv(saeh2014, file = "E14.csv")
+write.csv(bdss2014, file = "E14a.csv")
+write.csv(bdss2015, file = "E15a.csv")
+
+
+
+#revisar el nombre de las variables y el formato
+
+totalE <- bind_rows(totalE, saeh2014)
+
+write.csv(totalE, file = "TotalSAEH2000-2014.csv")
+
+
+totalEa <- bind_rows(totalEa, bdss2014, bdss2015)
+
+write.csv(totalEa, file = "TotalBDSS2004-2015.csv")
+
+rm(bdss2014, bdss2015, saeh2014)
+
+SAEH00_14 <- totalE
+BDSS04_15 <- totalEa
+
+
+rm(SAEH00_13, totalE, totalEa)
+# odbcCloseAll()
+
+
+SAEH00_14[81937,]
+
+               
